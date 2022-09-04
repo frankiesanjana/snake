@@ -1,9 +1,10 @@
+import { update as updateSnake, draw as drawSnake, SNAKE_SPEED } from './snake.js'
+
 // set up game loop
 
 let lastRenderTime = 0;
+const gameBoard = document.getElementById('game-board');
 
-// how many times the snake moves per second
-const SNAKE_SPEED = 2;
 
 function main(currentTime) {
     // following line tells us 'when can I animate my next frame?'
@@ -21,9 +22,10 @@ function main(currentTime) {
 window.requestAnimationFrame(main);
 
 function update() {
-
+    updateSnake();
 }
 
 function draw() {
-    
+    gameBoard.innerHTML = '';
+    drawSnake(gameBoard);
 }
